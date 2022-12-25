@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: '/file1.json',
+                    dataType: 'json',
+                    success: function (response) {
+                        $.each(response, function (index, element) {
+                            $('.info').append(
+                                $('<p>',
+                                    { text: element }),
+                                $('<p>')
+
+                            )
+                        })
+                    }
+                })
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button>Get</button>
+    <p class="info"></p>
+    <script type="text/javascript"></script>
+</body>
+
+</html>
